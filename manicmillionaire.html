@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manic Millionaire — Ryan De Corsie Ewen</title>
+<meta name="description" content="Wealth. Madness. Meaning. A field journal from a domain investor, entrepreneur and adventurer documenting the chaotic pursuit of wealth, freedom and meaning.">
+<meta property="og:title" content="Manic Millionaire">
+<meta property="og:description" content="Building businesses. Chasing freedom. Trying not to lose my mind in the process.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600;1,9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0b0a;
+    --ink-2:#16140f;
+    --paper:#f3ecdf;
+    --paper-dim:#a8a094;
+    --paper-faint:#6b655c;
+    --ember:#d8aa3c;
+    --ember-soft:#ecd08a;
+    --line:rgba(243,236,223,0.14);
+    --line-strong:rgba(243,236,223,0.28);
+    --maxw:1200px;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* grain overlay */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:9999;pointer-events:none;
+    opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--ember);color:var(--ink)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .kicker{
+    font-family:var(--mono);font-size:12px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--ember);font-weight:500;
+  }
+  .label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--paper-faint);font-weight:500;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    transition:background .35s ease,border-color .35s ease,padding .35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(12,11,10,0.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{font-family:var(--mono);font-weight:600;letter-spacing:.18em;font-size:14px;text-transform:uppercase}
+  .brand b{color:var(--ember)}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{
+    font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--paper-dim);transition:color .2s;position:relative;
+  }
+  .nav-links a:hover{color:var(--paper)}
+  .nav-cta{
+    border:1px solid var(--paper);padding:10px 18px;border-radius:2px;color:var(--paper)!important;
+    transition:all .2s;
+  }
+  .nav-cta:hover{background:var(--ember);border-color:var(--ember);color:var(--ink)!important}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .burger span{width:26px;height:2px;background:var(--paper);transition:.3s}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:170px 0 90px;position:relative}
+  .hero-grid-line{position:absolute;top:0;bottom:0;width:1px;background:var(--line);left:50%}
+  .hero .kicker{opacity:0;animation:rise .8s .1s forwards}
+  .triad{
+    display:flex;gap:0;flex-wrap:wrap;font-family:var(--mono);
+    font-size:13px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:30px;
+  }
+  .triad span{opacity:0;animation:rise .7s forwards}
+  .triad span:nth-child(1){animation-delay:.15s}
+  .triad span:nth-child(2){animation-delay:.28s}
+  .triad span:nth-child(3){animation-delay:.41s}
+  .triad i{color:var(--paper-faint);margin:0 14px;font-style:normal}
+  .triad em{font-style:normal;color:var(--ember)}
+  h1.hero-title{
+    font-family:var(--serif);font-weight:900;
+    font-size:clamp(3.4rem,12vw,9.5rem);line-height:.9;letter-spacing:-.02em;
+    margin:0 0 28px;text-transform:uppercase;
+  }
+  h1.hero-title .l1,h1.hero-title .l2{display:block;overflow:hidden}
+  h1.hero-title .l1 span,h1.hero-title .l2 span{display:block;transform:translateY(110%);animation:slideUp .9s cubic-bezier(.2,.7,.2,1) forwards}
+  h1.hero-title .l1 span{animation-delay:.3s}
+  h1.hero-title .l2 span{animation-delay:.42s;color:var(--ember)}
+  .hero-sub{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.35;max-width:680px;color:var(--paper);
+    margin-bottom:42px;opacity:0;animation:rise .8s .6s forwards;
+  }
+  .btns{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:rise .8s .75s forwards}
+  .btn{
+    font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+    padding:16px 30px;border-radius:2px;transition:all .25s;display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-primary{background:var(--ember);color:var(--ink)}
+  .btn-primary:hover{background:var(--paper);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-strong);color:var(--paper)}
+  .btn-ghost:hover{border-color:var(--paper);transform:translateY(-2px)}
+
+  /* ticker */
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;margin-top:80px;white-space:nowrap}
+  .ticker-track{display:inline-block;animation:scroll 38s linear infinite;font-family:var(--mono);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-dim)}
+  .ticker-track span{margin:0 28px}
+  .ticker-track span::before{content:"✦";color:var(--ember);margin-right:28px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:110px 0;position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:54px;flex-wrap:wrap}
+  .sec-head .num{font-family:var(--mono);font-size:12px;color:var(--ember)}
+  h2{
+    font-family:var(--serif);font-weight:900;font-size:clamp(2.2rem,5vw,3.8rem);
+    line-height:1.02;letter-spacing:-.015em;
+  }
+  h2 em{font-style:italic;color:var(--ember);font-weight:600}
+
+  /* ---------- MANIFESTO ---------- */
+  .manifesto{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .mani-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:70px}
+  .mani-left .big{
+    font-family:var(--serif);font-weight:900;font-size:clamp(2.8rem,7vw,5rem);line-height:.95;
+    text-transform:uppercase;letter-spacing:-.02em;
+  }
+  .mani-left .big span{display:block}
+  .mani-left .big span:nth-child(2){color:var(--ember);font-style:italic;font-weight:600;text-transform:none}
+  .mani-left .big span:nth-child(3){-webkit-text-stroke:1px var(--paper);color:transparent}
+  .staccato{font-family:var(--mono);font-size:14px;line-height:2.1;color:var(--paper-dim);margin-top:40px}
+  .staccato b{color:var(--paper)}
+  .mani-right p{font-size:19px;line-height:1.75;margin-bottom:22px;color:var(--paper)}
+  .mani-right p.lede{font-family:var(--serif);font-size:24px;font-style:italic;line-height:1.5;color:var(--paper)}
+  .mani-tags{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0}
+  .mani-tags span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:7px 13px;border-radius:2px;color:var(--paper-dim)}
+  .mani-close{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ember)}
+
+  /* ---------- STORY ---------- */
+  .story-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+  .story-grid p{font-size:20px;line-height:1.7;margin-bottom:20px}
+  .story-grid p strong{font-family:var(--serif);font-weight:600}
+  .story-pull{
+    font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(2rem,4vw,3rem);
+    line-height:1.1;border-left:3px solid var(--ember);padding-left:30px;
+  }
+  .story-pull em{color:var(--ember);font-style:italic}
+
+  /* ---------- TOPICS ---------- */
+  .topics{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .topic-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-bottom:none}
+  .topic{
+    border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+    padding:40px 34px;position:relative;transition:background .3s;cursor:default;overflow:hidden;
+  }
+  .topic:nth-child(3n){border-right:none}
+  .topic::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--ember);transition:width .4s}
+  .topic:hover{background:rgba(216,170,60,0.07)}
+  .topic:hover::after{width:100%}
+  .topic .tnum{font-family:var(--mono);font-size:12px;color:var(--ember);margin-bottom:24px;display:block}
+  .topic h3{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin-bottom:10px;letter-spacing:-.01em}
+  .topic p{font-size:15px;color:var(--paper-dim);line-height:1.55}
+
+  /* ---------- ARTICLES ---------- */
+  .articles ol{list-style:none}
+  .art{
+    display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:24px;
+    padding:28px 0;border-top:1px solid var(--line);transition:all .3s;
+  }
+  .articles ol li:last-child .art{border-bottom:1px solid var(--line)}
+  .art:hover{padding-left:14px}
+  .art .anum{font-family:var(--mono);font-size:13px;color:var(--paper-faint)}
+  .art .atitle{font-family:var(--serif);font-weight:600;font-size:clamp(1.25rem,2.6vw,1.9rem);line-height:1.2;transition:color .2s}
+  .art:hover .atitle{color:var(--ember)}
+  .art .aarrow{font-family:var(--mono);color:var(--paper-faint);transition:all .25s;font-size:18px}
+  .art:hover .aarrow{color:var(--ember);transform:translateX(6px)}
+
+  /* ---------- WORK ---------- */
+  .work{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .work-intro p{font-size:20px;line-height:1.7;margin-bottom:22px;color:var(--paper)}
+  .work-list{list-style:none}
+  .work-list li{
+    font-family:var(--serif);font-weight:600;font-size:1.5rem;padding:20px 0;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:18px;transition:color .25s;
+  }
+  .work-list li:first-child{border-top:1px solid var(--line)}
+  .work-list li .wn{font-family:var(--mono);font-size:12px;color:var(--ember);font-weight:500}
+  .work-list li:hover{color:var(--ember)}
+  .work-cta{margin-top:40px}
+
+  /* ---------- MEDIA / PROJECTS ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .proj{
+    border:1px solid var(--line);padding:40px 32px;border-radius:3px;transition:all .3s;
+    display:flex;flex-direction:column;justify-content:space-between;min-height:220px;
+  }
+  .proj:hover{border-color:var(--ember);transform:translateY(-4px)}
+  .proj .pdot{width:9px;height:9px;border-radius:50%;background:var(--ember);margin-bottom:auto}
+  .proj h3{font-family:var(--serif);font-weight:900;font-size:1.9rem;letter-spacing:-.01em;margin-top:30px}
+  .proj .ptag{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-faint);margin-top:8px}
+
+  /* ---------- POSITIONING ---------- */
+  .position{text-align:center;padding:130px 0}
+  .position .kicker{margin-bottom:30px;display:block}
+  .position blockquote{
+    font-family:var(--serif);font-weight:400;font-style:italic;
+    font-size:clamp(1.9rem,5vw,3.6rem);line-height:1.18;max-width:980px;margin:0 auto;letter-spacing:-.01em;
+  }
+  .position blockquote em{color:var(--ember);font-style:italic;font-weight:600}
+  .position .short{font-family:var(--mono);font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-dim);margin-top:40px}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line-strong);padding:90px 0 50px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;margin-bottom:70px;align-items:end}
+  .foot-big{font-family:var(--serif);font-weight:900;font-size:clamp(2.4rem,6vw,4.5rem);line-height:.95;text-transform:uppercase;letter-spacing:-.02em}
+  .foot-big em{font-style:italic;color:var(--ember);font-weight:600;text-transform:none}
+  .foot-socials{display:flex;flex-direction:column;gap:14px}
+  .foot-socials a{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);transition:all .2s;display:flex;align-items:center;gap:12px}
+  .foot-socials a:hover{color:var(--ember);transform:translateX(4px)}
+  .foot-socials a::before{content:"→";color:var(--ember)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:28px;flex-wrap:wrap;gap:16px}
+  .foot-bottom span,.foot-bottom a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-faint)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- THE PLAN ---------- */
+  .plan{background:var(--ember);color:var(--ink);padding:120px 0}
+  .plan .kicker{color:var(--ink);opacity:.7;display:block;margin-bottom:30px}
+  .plan-list{list-style:none;counter-reset:p}
+  .plan-list li{
+    counter-increment:p;font-family:var(--serif);font-weight:900;
+    font-size:clamp(2rem,6.5vw,5rem);line-height:1.02;letter-spacing:-.02em;
+    padding:14px 0;display:flex;gap:24px;align-items:baseline;text-transform:uppercase;
+  }
+  .plan-list li::before{content:"0" counter(p);font-family:var(--mono);font-size:14px;font-weight:600;opacity:.55;transform:translateY(-6px)}
+  .plan-cap{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2.4vw,1.7rem);margin-top:36px;max-width:600px}
+  .plan-cap b{font-weight:600}
+
+  /* ---------- DOMAIN CHALLENGE ---------- */
+  .challenge{position:relative;overflow:hidden}
+  .ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .ch-headline{font-family:var(--serif);font-weight:900;line-height:.92;letter-spacing:-.02em}
+  .ch-headline .from{font-size:clamp(2rem,5vw,3.4rem);color:var(--paper-dim)}
+  .ch-headline .arrow{font-size:clamp(1.6rem,4vw,2.6rem);color:var(--ember);margin:6px 0;display:block}
+  .ch-headline .to{font-size:clamp(3.4rem,11vw,7rem);color:var(--ember);text-shadow:0 0 40px rgba(216,170,60,.3)}
+  .ch-right p{font-size:19px;line-height:1.7;margin-bottom:24px}
+  .ch-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:32px}
+  .ch-stat{background:var(--ink);padding:22px 24px}
+  .ch-stat .sv{font-family:var(--serif);font-weight:900;font-size:1.7rem}
+  .ch-stat .sl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-faint);margin-top:4px}
+  .ch-stat .sv.live{color:var(--ember)}
+  .progress{margin-bottom:32px}
+  .progress-bar{height:10px;background:rgba(243,236,223,.1);border-radius:20px;overflow:hidden}
+  .progress-fill{height:100%;width:2%;background:linear-gradient(90deg,var(--ember),var(--ember-soft));border-radius:20px}
+  .progress-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-faint);margin-top:10px}
+
+  /* ---------- BOOK ---------- */
+  .book{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .book-stage{display:flex;justify-content:center;perspective:1600px}
+  .book-3d{
+    position:relative;width:280px;height:400px;transform:rotateY(-22deg);transform-style:preserve-3d;
+    transition:transform .6s ease;
+  }
+  .book-3d:hover{transform:rotateY(-8deg)}
+  .book-cover{
+    position:absolute;inset:0;border-radius:3px 6px 6px 3px;
+    background:linear-gradient(135deg,#16140f 0%,#0c0b0a 100%);
+    border:1px solid rgba(243,236,223,.12);
+    box-shadow:0 40px 70px -20px rgba(0,0,0,.8),0 0 0 1px rgba(216,170,60,.12);
+    padding:34px 28px;display:flex;flex-direction:column;justify-content:space-between;
+    backface-visibility:hidden;overflow:hidden;
+  }
+  .book-cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;background:rgba(0,0,0,.4);box-shadow:inset -2px 0 4px rgba(0,0,0,.5)}
+  .book-cover .bk-top{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ember)}
+  .book-cover .bk-title{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:.95;text-transform:uppercase;letter-spacing:-.01em}
+  .book-cover .bk-sub{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ember);margin-top:8px}
+  .book-cover .bk-author{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-dim)}
+  .book-spine{position:absolute;left:-22px;top:0;width:22px;height:100%;background:linear-gradient(#0a0908,#050505);transform:rotateY(90deg) translateX(-11px);transform-origin:left;border-radius:3px 0 0 3px}
+  .book-info .badge{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);border:1px solid var(--ember);padding:7px 14px;border-radius:2px;margin-bottom:24px}
+  .book-info p{font-size:19px;line-height:1.7;margin-bottom:22px}
+  .book-note{font-family:var(--mono);font-size:11px;color:var(--paper-faint);margin-top:18px;letter-spacing:.06em}
+
+  /* ---------- FOLLOW ---------- */
+  .follow{text-align:center;padding:120px 0}
+  .follow h2{margin-bottom:20px}
+  .follow p{font-size:20px;color:var(--paper-dim);max-width:560px;margin:0 auto 36px}
+  .follow-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .follow-links a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line-strong);padding:14px 22px;border-radius:2px;transition:all .25s}
+  .follow-links a:hover{border-color:var(--ember);color:var(--ember);transform:translateY(-2px)}
+
+  @keyframes rise{to{opacity:1;transform:none}}
+  @keyframes slideUp{to{transform:translateY(0)}}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:880px){
+    .nav-links{
+      position:fixed;inset:0;background:var(--ink);
+      flex-direction:column;gap:0;padding:0;border:none;height:100vh;
+      justify-content:center;align-items:flex-start;
+      transform:translateX(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);
+      z-index:998;
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{
+      font-family:var(--serif);font-weight:900;font-size:clamp(2.6rem,11vw,4rem);
+      line-height:1.05;letter-spacing:-.02em;text-transform:uppercase;
+      color:var(--paper);padding:8px 32px;width:auto;text-align:left;
+      opacity:0;transform:translateX(-24px);transition:color .2s,opacity .4s,transform .4s;
+    }
+    .nav-links.open a{opacity:1;transform:none}
+    .nav-links.open a:nth-child(1){transition-delay:.12s}
+    .nav-links.open a:nth-child(2){transition-delay:.18s}
+    .nav-links.open a:nth-child(3){transition-delay:.24s}
+    .nav-links.open a:nth-child(4){transition-delay:.30s}
+    .nav-links.open a:nth-child(5){transition-delay:.36s}
+    .nav-links.open a:nth-child(6){transition-delay:.42s}
+    .nav-links a:hover,.nav-links a:active{color:var(--ember)}
+    .nav-links a.nav-cta{border:none;border-radius:0;color:var(--ember);padding:8px 32px;margin-top:10px}
+    .nav-links a.nav-cta:hover{background:none;color:var(--paper)}
+    .burger{display:flex;z-index:1001;position:relative}
+    .nav-links.open ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-links.open ~ .burger span:nth-child(2){opacity:0}
+    .nav-links.open ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mani-grid,.story-grid,.work-grid,.foot-top,.ch-grid,.book-grid{grid-template-columns:1fr;gap:40px}
+    .book-grid{gap:56px}
+    .ch-stats{grid-template-columns:1fr 1fr}
+    .topic-grid{grid-template-columns:1fr 1fr}
+    .topic:nth-child(3n){border-right:1px solid var(--line)}
+    .topic:nth-child(2n){border-right:none}
+    .proj-grid{grid-template-columns:1fr}
+    .art{grid-template-columns:40px 1fr auto;gap:14px}
+  }
+  @media(max-width:540px){
+    .wrap{padding:0 22px}
+    .topic-grid{grid-template-columns:1fr}
+    .topic{border-right:none!important}
+    .triad i{margin:0 8px}
+    section{padding:80px 0}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand">MANIC<b>·</b>MILLIONAIRE</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#challenge">Challenge</a>
+      <a href="#book">Book</a>
+      <a href="#writing">Writing</a>
+      <a href="#media">Projects</a>
+      <a href="#work" class="nav-cta">Work With Me</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="triad">
+      <span><em>Wealth.</em></span><i>/</i><span><em>Madness.</em></span><i>/</i><span><em>Meaning.</em></span>
+    </div>
+    <h1 class="hero-title">
+      <span class="l1"><span>Manic</span></span>
+      <span class="l2"><span>Millionaire</span></span>
+    </h1>
+    <p class="hero-sub">Building businesses. Chasing freedom. Trying not to lose my mind in the process.</p>
+    <div class="btns">
+      <a href="#writing" class="btn btn-primary">Read The Stories →</a>
+      <a href="#work" class="btn btn-ghost">Work With Me</a>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Business</span><span>Domains</span><span>Fitness</span><span>Adventure</span><span>Wealth</span><span>Mindset</span><span>Burnout &amp; Rebuild</span><span>Freedom</span>
+      <span>Business</span><span>Domains</span><span>Fitness</span><span>Adventure</span><span>Wealth</span><span>Mindset</span><span>Burnout &amp; Rebuild</span><span>Freedom</span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="wrap">
+    <div class="mani-grid">
+      <div class="mani-left reveal">
+        <div class="big"><span>Wealth.</span><span>Madness.</span><span>Meaning.</span></div>
+        <div class="staccato">
+          I built companies.<br>
+          Bought and sold domains.<br>
+          <b>Made money.</b><br>
+          <b>Lost money.</b><br>
+          Burned out.<br>
+          Hit the bottom.<br>
+          <b>Survived it.</b><br>
+          Started again.<br>
+          Repeated the cycle more<br>times than I can count.
+        </div>
+      </div>
+      <div class="mani-right reveal">
+        <p class="lede">At various points I've been a millionaire, a workaholic, a fitness fanatic, a reckless optimist, a broken mess — and everything in between.</p>
+        <p>The truth is that success doesn't arrive with instructions. Nobody tells you what happens when the money comes but the questions remain.</p>
+        <p>I've survived suicide attempts and spells in mental hospitals. I'm still here, still building. That's the part most success stories quietly leave out.</p>
+        <p>Manic Millionaire is my attempt to document the journey.</p>
+        <div class="mani-tags">
+          <span>Business</span><span>Mental Resilience</span><span>Fitness</span><span>Adventure</span><span>Failure</span><span>Domains</span><span>Investing</span><span>Relationships</span><span>The Pursuit of Freedom</span>
+        </div>
+        <p>And the ongoing battle between ambition and contentment.</p>
+        <p class="mani-close">This isn't a guru website. It's a field journal from someone still figuring it out. Welcome aboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PLAN -->
+<section class="plan" id="plan">
+  <div class="wrap reveal">
+    <span class="kicker">The Plan — Or The Madness</span>
+    <ul class="plan-list">
+      <li>IPO for $100bn in 2030.</li>
+      <li>Give all the money away.</li>
+      <li>Become Prime Minister.</li>
+    </ul>
+    <p class="plan-cap">Ambitious? Insane? <b>Both.</b> Stick around and watch me find out.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">01</span><h2>My <em>Story</em></h2></div>
+    <div class="story-grid">
+      <div class="reveal">
+        <p>From a military boarding school kid to building online businesses, buying and selling digital assets, and searching for a life that actually feels meaningful.</p>
+        <p>I've also been to the bottom — <strong>suicide attempts, time in mental hospitals</strong> — and climbed back out. This isn't a highlight reel. It's the whole thing: the wins, the breakdowns, and what it actually takes to keep going.</p>
+        <p>I've given money away, chased extreme fitness goals, and stopped drinking after periods where it became an escape. One day I want to disappear to Scotland with dogs, mountain bikes, sheep and pigs.</p>
+        <p>Most "millionaire" brands are about Lamborghinis. Mine is about trying to figure out what actually matters after you make the money — and how to stay alive to enjoy it.</p>
+      </div>
+      <div class="story-pull reveal">The journey hasn't been linear.<br><em>That's the point.</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="topics" id="topics">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">02</span><h2>The <em>Topics</em></h2></div>
+    <div class="topic-grid reveal">
+      <div class="topic"><span class="tnum">/01</span><h3>Business</h3><p>Building companies, acquisitions, sales and the long grind of entrepreneurship.</p></div>
+      <div class="topic"><span class="tnum">/02</span><h3>Domains</h3><p>The deals, mistakes, negotiations and lessons from thousands of domain transactions.</p></div>
+      <div class="topic"><span class="tnum">/03</span><h3>Fitness</h3><p>CrossFit, Hyrox, squash, running and pushing physical limits.</p></div>
+      <div class="topic"><span class="tnum">/04</span><h3>Adventure</h3><p>Travel, experiences and getting out of the comfort zone.</p></div>
+      <div class="topic"><span class="tnum">/05</span><h3>Wealth</h3><p>Money, investing and what financial freedom actually buys you.</p></div>
+      <div class="topic"><span class="tnum">/06</span><h3>Mindset</h3><p>Resilience, burnout, purpose and staying sane through the cycle.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAIN CHALLENGE -->
+<section class="challenge" id="challenge">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">03</span><h2>The <em>Domain Challenge</em></h2></div>
+    <div class="ch-grid">
+      <div class="ch-headline reveal">
+        <div class="from">Start with $500.</div>
+        <span class="arrow">↓ one year ↓</span>
+        <div class="to">$1,000,000</div>
+      </div>
+      <div class="ch-right reveal">
+        <p>One rule: turn <strong>$500 into $1 million in twelve months</strong>, using nothing but domains — buying, flipping, brokering and building. Every deal, every mistake and every number documented in public.</p>
+        <div class="ch-stats">
+          <div class="ch-stat"><div class="sv">$500</div><div class="sl">Starting Stake</div></div>
+          <div class="ch-stat"><div class="sv">$1M</div><div class="sl">Target</div></div>
+          <div class="ch-stat"><div class="sv">12 mo</div><div class="sl">Timeline</div></div>
+          <div class="ch-stat"><div class="sv live">● Live</div><div class="sl">Status</div></div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="progress-meta"><span>Day 1</span><span>$500 / $1,000,000</span></div>
+        </div>
+        <a href="#follow" class="btn btn-primary">Follow The Challenge →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">04</span><h2>The <em>Book</em></h2></div>
+    <div class="book-grid">
+      <div class="book-stage reveal">
+        <div class="book-3d">
+          <div class="book-spine"></div>
+          <div class="book-cover">
+            <div class="bk-top">A Field Journal</div>
+            <div>
+              <div class="bk-title">Manic<br>Millionaire</div>
+              <div class="bk-sub">Wealth. Madness. Meaning.</div>
+            </div>
+            <div class="bk-author">Ryan De Corsie Ewen</div>
+          </div>
+        </div>
+      </div>
+      <div class="book-info reveal">
+        <span class="badge">Out Late July 2026</span>
+        <p>The whole story, unedited — building businesses, making and losing fortunes, the breakdowns, the hospitals, and clawing back out. Not a how-to. A what-it-actually-felt-like.</p>
+        <p>If you've ever made it and still felt lost, this one's for you.</p>
+        <a href="#follow" class="btn btn-primary">Get Notified At Launch →</a>
+        <div class="book-note">Cover is a working mockup — final title &amp; art to be confirmed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="articles" id="writing">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">05</span><h2>Popular <em>Writing</em></h2></div>
+    <ol class="reveal">
+      <li><a href="#" class="art"><span class="anum">01</span><span class="atitle">How I Bought A Domain For $2,500 And Sold It For $52,500</span><span class="aarrow">→</span></a></li>
+      <li><a href="#" class="art"><span class="anum">02</span><span class="atitle">Why Success Made Me More Restless</span><span class="aarrow">→</span></a></li>
+      <li><a href="#" class="art"><span class="anum">03</span><span class="atitle">The 100 Day Goggins Challenge</span><span class="aarrow">→</span></a></li>
+      <li><a href="#" class="art"><span class="anum">04</span><span class="atitle">What Nearly Dying Taught Me About Time</span><span class="aarrow">→</span></a></li>
+      <li><a href="#" class="art"><span class="anum">05</span><span class="atitle">Why Most Entrepreneurs Are Running From Something</span><span class="aarrow">→</span></a></li>
+      <li><a href="#" class="art"><span class="anum">06</span><span class="atitle">The Butterfly Effect Philosophy</span><span class="aarrow">→</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">06</span><h2>Work With <em>Ryan</em></h2></div>
+    <div class="work-grid">
+      <div class="work-intro reveal">
+        <p>I occasionally work with founders, investors and entrepreneurs — the ones who want a sharper edge in the digital economy.</p>
+        <p>No theory. Just hard-won, practical knowledge from buying and selling thousands of domains, building over a thousand websites, and running marketplaces of my own.</p>
+        <div class="work-cta">
+          <a href="mailto:hello@manicmillionaire.com" class="btn btn-primary">Start A Conversation →</a>
+        </div>
+      </div>
+      <ul class="work-list reveal">
+        <li><span class="wn">01</span> Domain Acquisitions</li>
+        <li><span class="wn">02</span> Domain Portfolio Strategy</li>
+        <li><span class="wn">03</span> Business Growth</li>
+        <li><span class="wn">04</span> Digital Assets</li>
+        <li><span class="wn">05</span> Mentoring</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA / PROJECTS -->
+<section id="media">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="num">07</span><h2>Media &amp; <em>Projects</em></h2></div>
+    <div class="proj-grid reveal">
+      <a href="https://millionplus.com" class="proj"><span class="pdot"></span><div><h3>MillionPlus.com</h3><span class="ptag">Digital Assets</span></div></a>
+      <a href="https://digitaljunkyard.com" class="proj"><span class="pdot"></span><div><h3>DigitalJunkyard.com</h3><span class="ptag">Marketplace</span></div></a>
+      <a href="https://domainmanage.com" class="proj"><span class="pdot"></span><div><h3>DomainManage.com</h3><span class="ptag">Portfolio Tools</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING -->
+<section class="position">
+  <div class="wrap reveal">
+    <span class="kicker">The One Line</span>
+    <blockquote>A domain investor, entrepreneur and adventurer documenting the <em>chaotic pursuit</em> of wealth, freedom and meaning.</blockquote>
+    <div class="short">Building businesses · Chasing freedom · Reporting back</div>
+  </div>
+</section>
+
+<!-- FOLLOW -->
+<section class="follow" id="follow">
+  <div class="wrap reveal">
+    <span class="kicker">Follow My Journey</span>
+    <h2>Watch It <em>Unfold</em></h2>
+    <p>New chapters, domain deals, breakdowns and the road to the IPO — as they happen. No filter, no highlight reel.</p>
+    <div class="follow-links">
+      <a href="https://www.x.com/rdce80">X / Twitter</a>
+      <a href="https://www.instagram.com/rdce.80">Instagram</a>
+      <a href="https://www.linkedin.com/in/rdce80">LinkedIn</a>
+      <a href="mailto:hello@manicmillionaire.com">Email Updates</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big reveal">Still <em>figuring</em><br>it out.</div>
+      <div class="foot-socials reveal">
+        <a href="https://www.x.com/rdce80">@rdce80 on X</a>
+        <a href="https://www.linkedin.com/in/rdce80">@rdce80 on LinkedIn</a>
+        <a href="https://www.instagram.com/rdce.80">@rdce.80 on Instagram</a>
+        <a href="mailto:hello@manicmillionaire.com">hello@manicmillionaire.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Manic Millionaire — Ryan De Corsie Ewen</span>
+      <span>Wealth · Madness · Meaning</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scrolled state
+  const header=document.getElementById('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40));
+  // burger
+  const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>{links.classList.toggle('open');document.body.style.overflow=links.classList.contains('open')?'hidden':'';});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');document.body.style.overflow='';}));
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
