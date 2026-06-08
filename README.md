@@ -1,5 +1,3 @@
-## Hi there 👋
-
 # Manic Millionaire
 
 > **Wealth. Madness. Meaning.**
@@ -91,4 +89,3 @@ The included `CNAME` file already sets the custom domain to `manicmillionaire.co
 ## License
 
 © Ryan De Corsie Ewen. All rights reserved.
-
