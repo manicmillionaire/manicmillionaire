@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<!-- saved from url=(0029)https://manicmillionaire.com/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600;1,9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
   :root{
     --ink:#0c0b0a;
@@ -349,6 +350,16 @@
   .mansion-or a{color:var(--ember)}
   .mansion-or b{color:var(--paper)}
 
+  .sec-cta{text-align:center;margin-top:50px}
+  .pre-line{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--paper-dim);margin-bottom:12px}
+  .inline-form{display:flex;gap:10px;max-width:440px;margin-top:6px;flex-wrap:wrap}
+  .inline-form input[type=email]{flex:1;min-width:200px;font-family:var(--sans);font-size:15px;padding:15px 16px;background:rgba(243,236,223,0.05);border:1px solid var(--line-strong);border-radius:2px;color:var(--paper);outline:none;transition:border-color .2s}
+  .inline-form input[type=email]:focus{border-color:var(--ember)}
+  .inline-form input::placeholder{color:var(--paper-faint)}
+  .inline-form .btn{border:none;cursor:pointer;white-space:nowrap}
+  .inline-note{font-family:var(--mono);font-size:12px;margin-top:12px;color:var(--paper-dim);min-height:1.1em}
+  .inline-note.ok{color:var(--ember)}
+
   @keyframes rise{to{opacity:1;transform:none}}
   @keyframes slideUp{to{transform:translateY(0)}}
   @keyframes scroll{to{transform:translateX(-50%)}}
@@ -406,7 +417,7 @@
 </head>
 <body>
 
-<header id="header">
+<header id="header" class="">
   <div class="wrap nav">
     <a href="https://manicmillionaire.com/#top" class="brand">MANIC MILLIONAIRE</a>
     <nav class="nav-links" id="navLinks">
@@ -416,7 +427,7 @@
       <a href="https://manicmillionaire.com/#book">Book</a>
       <a href="https://manicmillionaire.com/#writing">Writing</a>
       <a href="https://manicmillionaire.com/#media">Projects</a>
-      <a href="https://manicmillionaire.com/#work" class="nav-cta">Work With Me</a>
+      <a href="https://manicmillionaire.com/#work" class="nav-cta">Get Started</a>
     </nav>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav></div>
@@ -433,8 +444,7 @@
     </h1>
     <p class="hero-sub">Building businesses. Chasing freedom. Trying not to lose my mind in the process.</p>
     <div class="btns">
-      <a href="https://manicmillionaire.com/#writing" class="btn btn-primary">Read The Stories →</a>
-      <a href="https://manicmillionaire.com/#work" class="btn btn-ghost">Work With Me</a>
+      <a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a>
     </div>
   </div>
   <div class="ticker">
@@ -449,7 +459,7 @@
 <section class="manifesto" id="manifesto">
   <div class="wrap">
     <div class="mani-grid">
-      <div class="mani-left reveal">
+      <div class="mani-left reveal in">
         <div class="big"><span>Wealth</span><span>Madness</span><span>Meaning</span></div>
         <div class="staccato">
           I built companies.<br>
@@ -463,7 +473,7 @@
           <b>Made money.</b>
         </div>
       </div>
-      <div class="mani-right reveal">
+      <div class="mani-right reveal in">
         <p class="lede">At various points I've been a paper millionaire, a workaholic, a fitness fanatic, a reckless optimist, a broken mess — and everything in between.</p>
         <p>The truth is that success doesn't arrive with instructions. Nobody tells you what happens when the money comes but the questions remain.</p>
         <p>I've survived suicide attempts and spells in mental hospitals. I'm still here, still building. That's the part most success stories quietly leave out.</p>
@@ -475,12 +485,13 @@
         <p class="mani-close">This isn't a guru website. It's a field journal from someone still figuring it out. Welcome aboard.</p>
       </div>
     </div>
+    <div class="sec-cta reveal"><a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a></div>
   </div>
 </section>
 
 <!-- THE PLAN -->
 <section class="plan" id="plan">
-  <div class="wrap reveal">
+  <div class="wrap reveal in">
     <span class="kicker">The Plan — Or The Madness</span>
     <ul class="plan-list">
       <li>IPO for $100bn in 2030</li>
@@ -494,24 +505,25 @@
 <!-- STORY -->
 <section id="story">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>My <em>Story</em></h2></div>
+    <div class="sec-head reveal in"><h2>My <em>Story</em></h2></div>
     <div class="story-grid">
-      <div class="reveal">
+      <div class="reveal in">
         <p>From a military boarding school runaway to building online businesses, buying and selling digital assets, and searching for a life that actually feels meaningful.</p>
         <p>I've also been to the bottom — <strong>suicide attempts, time in mental hospitals</strong> — and climbed back out. This isn't a highlight reel. It's the whole thing: the wins, the breakdowns, and what it actually takes to keep going.</p>
         <p>I've given money away, chased extreme fitness goals, and stopped drinking alcohol after periods where it became an escape. One day I will disappear to rural Scotland with the dogs, the mountain bike, 2 sheep, 3 pigs &amp; 1 donkey.</p>
         <p>Most "millionaire" brands are about Lamborghinis. Mine is about trying to figure out what actually matters after you make the money — and how to stay alive to enjoy it.</p>
       </div>
-      <div class="story-pull reveal">The journey hasn't been linear.<br><em>That's the point.</em></div>
+      <div class="story-pull reveal in">The journey hasn't been linear.<br><em>That's the point.</em></div>
     </div>
+    <div class="sec-cta reveal"><a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a></div>
   </div>
 </section>
 
 <!-- TOPICS -->
 <section class="topics" id="topics">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The <em>Topics</em></h2></div>
-    <div class="topic-grid reveal">
+    <div class="sec-head reveal in"><h2>The <em>Topics</em></h2></div>
+    <div class="topic-grid reveal in">
       <div class="topic"><h3>Business</h3><p>Building companies, acquisitions, sales and the long grind of entrepreneurship.</p></div>
       <div class="topic"><h3>Domains</h3><p>The deals, mistakes, negotiations and lessons from thousands of domain transactions.</p></div>
       <div class="topic"><h3>Fitness</h3><p>CrossFit, Hyrox, squash, running and pushing physical limits.</p></div>
@@ -519,20 +531,21 @@
       <div class="topic"><h3>Mindset</h3><p>Resilience, burnout, purpose and staying sane through the cycle.</p></div>
       <div class="topic"><h3>Education</h3><p>The academy, challenges and hands-on coaching with digital assets.</p></div>
     </div>
+    <div class="sec-cta reveal"><a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a></div>
   </div>
 </section>
 
 <!-- DOMAIN CHALLENGE -->
 <section class="challenge" id="challenge">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The <em>Domain Challenge</em></h2></div>
+    <div class="sec-head reveal in"><h2>The <em>Domain Challenge</em></h2></div>
     <div class="ch-grid">
-      <div class="ch-headline reveal">
+      <div class="ch-headline reveal in">
         <div class="from">Start with $500.</div>
         <span class="arrow">↓ one year ↓</span>
         <div class="to">$1,000,000</div>
       </div>
-      <div class="ch-right reveal">
+      <div class="ch-right reveal in">
         <p>One rule: turn <strong>$500 into $1 million in twelve months</strong>, using nothing but domains — buying, flipping, monetising and building. Every deal, every mistake and every number documented in public.</p>
         <div class="ch-stats">
           <div class="ch-stat"><div class="sv">$500</div><div class="sl">Starting Stake</div></div>
@@ -544,7 +557,13 @@
           <div class="progress-bar"><div class="progress-fill"></div></div>
           <div class="progress-meta"><span>Day 1</span><span>$500 / $1,000,000</span></div>
         </div>
-        <a href="https://manicmillionaire.com/#follow" class="btn btn-primary">Pre-Register To Follow The Challenge →</a>
+        <p class="pre-line">Pre-register to follow the challenge live:</p>
+        <form class="inline-form" id="challengeForm" action="https://formspree.io/f/mykalwzd" method="POST">
+          <input type="hidden" name="interest" value="Domain Challenge">
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+          <button type="submit" class="btn btn-primary">Pre-Register →</button>
+        </form>
+        <div class="inline-note" id="challengeMsg" role="status" aria-live="polite"></div>
       </div>
     </div>
   </div>
@@ -553,9 +572,9 @@
 <!-- BOOK -->
 <section class="book" id="book">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>The <em>Book</em></h2></div>
+    <div class="sec-head reveal in"><h2>The <em>Book</em></h2></div>
     <div class="book-grid">
-      <div class="book-stage reveal">
+      <div class="book-stage reveal in">
         <div class="book-3d">
           <div class="book-spine"></div>
           <div class="book-cover">
@@ -568,11 +587,17 @@
           </div>
         </div>
       </div>
-      <div class="book-info reveal">
+      <div class="book-info reveal in">
         <span class="badge">October 2026</span>
         <p>The whole story, unedited — building businesses, making and losing fortunes, the breakdowns, the hospitals, and clawing back out. Not a how-to. A what-it-actually-felt-like.</p>
         <p>If you've ever made it and still felt lost, this one's for you.</p>
-        <a href="https://manicmillionaire.com/#follow" class="btn btn-primary">Get Notified For Pre-Launch →</a>
+        <p class="pre-line">Get notified for pre-launch:</p>
+        <form class="inline-form" id="bookForm" action="https://formspree.io/f/mykalwzd" method="POST">
+          <input type="hidden" name="interest" value="Book Pre-Launch">
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+          <button type="submit" class="btn btn-primary">Pre-Launch Notification →</button>
+        </form>
+        <div class="inline-note" id="bookMsg" role="status" aria-live="polite"></div>
         <div class="book-note">Cover is a working mockup — final title &amp; art to be confirmed.</div>
       </div>
     </div>
@@ -582,7 +607,7 @@
 <!-- MANIC MANSION -->
 <section class="mansion" id="mansion">
   <div class="wrap">
-    <div class="mansion-head reveal">
+    <div class="mansion-head reveal in">
       <h2>Manic <em>Mansion</em></h2>
       <div class="mansion-badge">July 2026</div>
       <p class="mansion-tag">A travelling mastermind for the manic and the ambitious — sunshine, training, real food, real rooms full of people who build, and the conversations that move money.</p>
@@ -593,31 +618,31 @@
       <p class="mansion-motto">Learn. Connect. Build. Profit.</p>
     </div>
 
-    <div class="mansion-sub reveal"><span>Choose Your Location</span></div>
-    <div class="loc-grid reveal" id="locGrid">
+    <div class="mansion-sub reveal in"><span>Choose Your Location</span></div>
+    <div class="loc-grid reveal in" id="locGrid">
       <button type="button" class="loc" data-loc="Spain"><span class="loc-city">Spain</span><span class="loc-vibe">Coastal villa</span></button>
       <button type="button" class="loc" data-loc="Bali"><span class="loc-city">Bali</span><span class="loc-vibe">Jungle pool</span></button>
       <button type="button" class="loc" data-loc="Morocco"><span class="loc-city">Morocco</span><span class="loc-vibe">Riad palace</span></button>
-      <button type="button" class="loc" data-loc="Florida"><span class="loc-city">Florida</span><span class="loc-vibe">Waterfront</span></button>
+      <button type="button" class="loc sel" data-loc="Florida"><span class="loc-city">Florida</span><span class="loc-vibe">Waterfront</span></button>
       <button type="button" class="loc" data-loc="Hawaii"><span class="loc-city">Hawaii</span><span class="loc-vibe">Island coast</span></button>
       <button type="button" class="loc" data-loc="London"><span class="loc-city">London</span><span class="loc-vibe">City base</span></button>
     </div>
 
-    <div class="mansion-sub reveal"><span>How Many Days Would You Stay?</span></div>
-    <div class="days reveal" id="dayRow">
+    <div class="mansion-sub reveal in"><span>How Many Days Would You Stay?</span></div>
+    <div class="days reveal in" id="dayRow">
       <button type="button" class="day" data-day="3 days">3 Days</button>
       <button type="button" class="day" data-day="5 days">5 Days</button>
-      <button type="button" class="day" data-day="7 days">7 Days</button>
+      <button type="button" class="day sel" data-day="7 days">7 Days</button>
       <button type="button" class="day" data-day="14+ days">14+ Days</button>
     </div>
 
-    <form class="mansion-form reveal" id="mansionForm" action="https://formspree.io/f/mykalwzd" method="POST">
-      <input type="hidden" name="location" id="fLoc">
-      <input type="hidden" name="days" id="fDays">
-      <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+    <form class="mansion-form reveal in" id="mansionForm" action="https://formspree.io/f/mykalwzd" method="POST">
+      <input type="hidden" name="location" id="fLoc" value="Florida">
+      <input type="hidden" name="days" id="fDays" value="7 days">
+      <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required="">
       <button type="submit" class="btn btn-primary">Register Interest →</button>
     </form>
-    <div class="mc-note" id="mansionMsg" role="status" aria-live="polite"></div>
+    <div class="mc-note ok" id="mansionMsg" role="status" aria-live="polite">You’re on the list. I’ll be in touch with the details.</div>
     <div class="mansion-or">Prefer the feed? Comment your <b>location + days</b> over on <a href="https://www.x.com/manicmillion">@manicmillion on X</a>.</div>
   </div>
 </section>
@@ -625,7 +650,7 @@
 <!-- ARTICLES -->
 <section class="articles" id="writing">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>Popular <em>Writing</em></h2></div>
+    <div class="sec-head reveal in"><h2>Popular <em>Writing</em></h2></div>
     <ol class="reveal">
       <li><a href="https://manicmillionaire.com/#" class="art"><span class="anum">01</span><span class="atitle">How I Bought A Domain For $2,500 And Sold It For $52,500</span><span class="aarrow">→</span></a></li>
       <li><a href="https://manicmillionaire.com/#" class="art"><span class="anum">02</span><span class="atitle">Why Success Made Me More Restless</span><span class="aarrow">→</span></a></li>
@@ -646,7 +671,7 @@
         <p>I occasionally work with founders, investors and entrepreneurs — the ones who want a sharper edge in the digital economy.</p>
         <p>No theory. Just hard-won, practical knowledge from buying and selling thousands of domains, building over 500 websites, and running marketplaces of my own.</p>
         <div class="work-cta">
-          <a href="mailto:hello@manicmillionaire.com" class="btn btn-primary">Start A Conversation →</a>
+          <a href="mailto:hello@manicmillionaire.com" class="btn btn-primary">Get Started →</a>
         </div>
       </div>
       <ul class="work-list reveal">
@@ -677,6 +702,7 @@
   <div class="wrap reveal">
     <blockquote>A domain investor, entrepreneur and adventurer documenting the <em>chaotic pursuit</em> of wealth, freedom and meaning.</blockquote>
     <div class="short">Building businesses · Chasing freedom · Reporting back</div>
+    <div class="sec-cta"><a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a></div>
   </div>
 </section>
 
@@ -691,6 +717,7 @@
       <a href="https://www.linkedin.com/in/manicmillion">LinkedIn</a>
       <a href="mailto:hello@manicmillionaire.com">Email Updates</a>
     </div>
+    <div class="sec-cta"><a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a></div>
   </div>
 </section>
 
@@ -749,9 +776,25 @@
       else{msg.textContent='Something went wrong — please try again.';}
     }catch(_){msg.textContent='Something went wrong — please try again.';}
   });}
+  // generic inline forms (challenge + book pre-register)
+  function wireForm(id, msgId, ok){
+    const f=document.getElementById(id); if(!f) return;
+    f.addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const m=document.getElementById(msgId); m.classList.remove('ok'); m.textContent='Sending…';
+      try{
+        const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+        if(r.ok){f.reset();m.classList.add('ok');m.textContent=ok;}
+        else{m.textContent='Something went wrong — please try again.';}
+      }catch(_){m.textContent='Something went wrong — please try again.';}
+    });
+  }
+  wireForm('challengeForm','challengeMsg','You\u2019re pre-registered. I\u2019ll keep you posted.');
+  wireForm('bookForm','bookMsg','You\u2019re on the pre-launch list.');
   // year
   document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
+
 
 
 </body></html>
