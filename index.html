@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./index_files/css2" rel="stylesheet">
+<link href="./i20_files/css2" rel="stylesheet">
 <style>
   :root{
     --ink:#0c0b0a;
@@ -141,7 +141,8 @@
   h2 em{font-style:italic;color:var(--ember);font-weight:600}
 
   /* ---------- MANIFESTO ---------- */
-  .manifesto{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .manifesto{background:var(--ink-2);border-bottom:1px solid var(--line);padding-top:0}
+  .manifesto .ticker{margin-top:0;margin-bottom:72px}
   .mani-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:70px}
   .mani-left .big{
     font-family:var(--serif);font-weight:900;font-size:clamp(2.8rem,7vw,5rem);line-height:.95;
@@ -254,7 +255,7 @@
   .plan-list{list-style:none;counter-reset:p}
   .plan-list li{
     counter-increment:p;font-family:var(--serif);font-weight:900;
-    font-size:clamp(2rem,6.5vw,5rem);line-height:1.02;letter-spacing:-.02em;
+    font-size:clamp(1.7rem,5.5vw,4.25rem);line-height:1.02;letter-spacing:-.02em;
     padding:14px 0;display:flex;gap:24px;align-items:baseline;text-transform:uppercase;
   }
   .plan-list li::before{content:"0" counter(p);font-family:var(--mono);font-size:14px;font-weight:600;opacity:.55;transform:translateY(-6px)}
@@ -351,8 +352,9 @@
   .mansion-or b{color:var(--paper)}
 
   .sec-cta{text-align:center;margin-top:50px}
+  .mani-cta{margin-top:36px}
   .pre-line{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--paper-dim);margin-bottom:12px}
-  .inline-form{display:flex;gap:10px;max-width:440px;margin-top:6px;flex-wrap:wrap}
+  .inline-form{display:flex;gap:22px 10px;max-width:440px;margin-top:6px;flex-wrap:wrap}
   .inline-form input[type=email]{flex:1;min-width:200px;font-family:var(--sans);font-size:15px;padding:15px 16px;background:rgba(243,236,223,0.05);border:1px solid var(--line-strong);border-radius:2px;color:var(--paper);outline:none;transition:border-color .2s}
   .inline-form input[type=email]:focus{border-color:var(--ember)}
   .inline-form input::placeholder{color:var(--paper-faint)}
@@ -447,16 +449,16 @@
       <a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a>
     </div>
   </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
   <div class="ticker">
     <div class="ticker-track">
       <span>Business</span><span>Domains</span><span>Fitness</span><span>Adventure</span><span>Wealth</span><span>Mindset</span><span>Burnout &amp; Rebuild</span><span>Freedom</span>
       <span>Business</span><span>Domains</span><span>Fitness</span><span>Adventure</span><span>Wealth</span><span>Mindset</span><span>Burnout &amp; Rebuild</span><span>Freedom</span>
     </div>
   </div>
-</section>
-
-<!-- MANIFESTO -->
-<section class="manifesto" id="manifesto">
   <div class="wrap">
     <div class="mani-grid">
       <div class="mani-left reveal in">
@@ -483,9 +485,9 @@
         </div>
         <p>And the ongoing battle between ambition and contentment.</p>
         <p class="mani-close">This isn't a guru website. It's a field journal from someone still figuring it out. Welcome aboard.</p>
+        <div class="mani-cta reveal"><a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a></div>
       </div>
     </div>
-    <div class="sec-cta reveal"><a href="https://manicmillionaire.com/#work" class="btn btn-primary">Get Started →</a></div>
   </div>
 </section>
 
@@ -560,7 +562,7 @@
         <p class="pre-line">Pre-register to follow the challenge live:</p>
         <form class="inline-form" id="challengeForm" action="https://formspree.io/f/mykalwzd" method="POST">
           <input type="hidden" name="interest" value="Domain Challenge">
-          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required="">
           <button type="submit" class="btn btn-primary">Pre-Register →</button>
         </form>
         <div class="inline-note" id="challengeMsg" role="status" aria-live="polite"></div>
@@ -594,7 +596,7 @@
         <p class="pre-line">Get notified for pre-launch:</p>
         <form class="inline-form" id="bookForm" action="https://formspree.io/f/mykalwzd" method="POST">
           <input type="hidden" name="interest" value="Book Pre-Launch">
-          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required="">
           <button type="submit" class="btn btn-primary">Pre-Launch Notification →</button>
         </form>
         <div class="inline-note" id="bookMsg" role="status" aria-live="polite"></div>
@@ -794,6 +796,7 @@
   // year
   document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
+
 
 
 
